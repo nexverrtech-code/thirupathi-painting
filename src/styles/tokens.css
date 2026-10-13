@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Design tokens — Thirupathi Painting Contractors
+   ========================================================================== */
+:root {
+  /* Brand palette */
+  --emerald: #142a25;
+  --forest: #203b32;
+  --gold: #d5b779;
+  --gold-soft: #e6d3a7;
+  --gold-deep: #a88a4f;
+  --ivory: #f5f0e7;
+  --ivory-deep: #ebe3d4;
+  --white: #ffffff;
+  --charcoal: #292927;
+  --muted: #77756d;
+  --muted-strong: #625f58; /* AA-compliant muted text on ivory/white */
+  --error: #a23b2a;
+
+  /* Semantic */
+  --bg: var(--ivory);
+  --text: var(--charcoal);
+  --text-on-dark: var(--ivory);
+  --text-on-dark-soft: rgba(245, 240, 231, 0.74);
+  --line: rgba(41, 41, 39, 0.14);
+  --line-strong: rgba(41, 41, 39, 0.28);
+  --line-gold: rgba(213, 183, 121, 0.38);
+  --focus: var(--emerald);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Noto Serif Tamil', 'Times New Roman', serif;
+  --font-body: 'Manrope', 'Noto Sans Tamil', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
+  --fs-h4: clamp(1.4rem, 1.2rem + 0.6vw, 1.75rem);
+  --fs-h3: clamp(1.75rem, 1.4rem + 1.2vw, 2.4rem);
+  --fs-h2: clamp(2.5rem, 1.6rem + 3.2vw, 4.6rem);
+  --fs-h1: clamp(2.9rem, 1.6rem + 4.6vw, 6.2rem);
+  --fs-display: clamp(3.1rem, 1.4rem + 6.4vw, 7.6rem);
+
+  --lh-tight: 1.02;
+  --lh-heading: 1.08;
+  --lh-body: 1.7;
+  --tracking-caps: 0.2em;
+
+  /* Spacing & layout */
+  --container: 1320px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --section: clamp(84px, 10vw, 168px);
+  --header-h: 84px;
+  --radius: 2px;
+  --radius-md: 4px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur: 0.5s;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(20, 42, 37, 0.06), 0 4px 14px rgba(20, 42, 37, 0.05);
+  --shadow-md: 0 18px 50px -20px rgba(20, 42, 37, 0.35);
+  --shadow-lg: 0 40px 90px -40px rgba(10, 22, 19, 0.55);
+
+  /* Textures (inline SVG noise — no extra requests) */
+  --noise-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.15 0 0 0 0 0.13 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --noise-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.84 0 0 0 0 0.72 0 0 0 0 0.47 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Tamil script is visually wider and taller: soften the display scale. */
+html[data-lang='ta'] {
+  --fs-display: clamp(2rem, 1.1rem + 3.2vw, 4.3rem);
+  --fs-h1: clamp(2.1rem, 1.3rem + 2.9vw, 4.1rem);
+  --fs-h2: clamp(1.85rem, 1.3rem + 2vw, 3.1rem);
+  --fs-h3: clamp(1.4rem, 1.15rem + 0.9vw, 1.9rem);
+  --fs-h4: clamp(1.15rem, 1rem + 0.5vw, 1.4rem);
+  --lh-tight: 1.3;
+  --lh-heading: 1.36;
+  --lh-body: 1.85;
+  --tracking-caps: 0.04em;
+}
