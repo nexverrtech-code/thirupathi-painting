@@ -27,7 +27,7 @@ npm run preview   # serve the production build locally
 ```
 index.html                 Default meta tags, fonts, LocalBusiness JSON-LD
 vite.config.js             Vite config + build-time sitemap.xml / robots.txt
-public/                    favicon.svg, apple-touch-icon.png, og-image.jpg, site.webmanifest, _redirects
+public/                    favicon.svg, apple-touch-icon.png, og-image.jpg, site.webmanifest
 src/
   main.jsx                 Entry: router + language provider
   App.jsx                  Layout, routes, page transitions, hash scrolling
@@ -186,9 +186,9 @@ No prices are published.
 
 Run `npm run build` and upload the `dist/` folder to any static host. The host must serve `index.html` for unknown paths (SPA fallback), and **HTTPS must be enabled**.
 
-- **Netlify:** build command `npm run build`, publish directory `dist`. `public/_redirects` already provides the SPA fallback. Add `VITE_SITE_URL` under Site settings → Environment variables.
+- **Netlify:** build command `npm run build`, publish directory `dist`. `netlify.toml` already provides the SPA fallback. Add `VITE_SITE_URL` under Site settings → Environment variables.
 - **Vercel:** framework preset "Vite". `vercel.json` already provides the rewrites. Add `VITE_SITE_URL` as an environment variable.
-- **Cloudflare Pages:** build command `npm run build`, output `dist`. `_redirects` is supported.
+- **Cloudflare (Workers):** build command `npm run build`, deploy command `npx wrangler deploy`. `wrangler.jsonc` serves `dist` with `not_found_handling: "single-page-application"`. Don't add a `_redirects` file: Workers rejects the `/* /index.html 200` rule as an infinite loop. Set `VITE_SITE_URL` as a **build** variable.
 - **Other hosts (Apache / Nginx):** rewrite every non-file request to `/index.html`.
 
 ---
